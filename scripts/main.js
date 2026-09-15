@@ -12,6 +12,8 @@ const monthYearText = document.querySelector('js-monthYearText');
 const dateResidents = document.querySelector('.js-dateResidents');
 //
 
+// Kalender variabler
 const today = new Date();
 let currentYear = today.getFullYear();
-let currentMonth = today.getMonth();
+let currentMonth = today.getFullMonth();
+
