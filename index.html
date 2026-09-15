@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Familiens Sommerhus</title>
+<link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+<!-- Header -->
+<header class="header">
+  <nav class="mainNav">
+  <button class="navButton js-calendarNavButton" type="button">Kalender</button>
+  <button class="navButton js-myBookingNavButton" type="button">Mine bookinger</button>
+  <button class="navButton js-infoNavButton" type="button">Praktisk info</button>
+  </nav>
+</header>
+<!-- Calendar page -->
+  <main class="calendarPage">
+  <section class="calendarSection">
+    <div class="bookingActions js-bookingActions">
+      <button class="editBookingButton js-editBookingButton" type="button">Rediger</button>
+      <button class="deleteBookingButton js-deleteButton" type="button">Slet</button>
+    </div>
+<!-- Calender header -->
+  <div class="calendarHeader">
+    <button class="chooseMonthButton js-chooseMonthButtonLeft" type="button">←</button>
+    <h2 class="monthYearText js-monthYearText">September 2026</h2>
+    <button class="chooseMonthButton js-chooseMonthButtonRight" type="button">→</button>
+  </div>
+<!-- Calender Grid -->
+  <div class="calendarWeekdays">
+    <span>Man</span>
+    <span>Tir</span>
+    <span>Ons</span>
+    <span>Tor</span>
+    <span>Fre</span>
+    <span>Lør</span>
+    <span>Søn</span>
+  </div>
+<div class="calendarGrid js-calendarGrid"></div>
+  <div class="dateResidents js-dateResidents"></div>
+  </section>
+</main>
+<script type="module" src="scripts/main.js"></script>
+</body>
+</html>
