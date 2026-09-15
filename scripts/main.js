@@ -22,5 +22,17 @@ const calendarMonths = [
 ];
 
 monthYearText.textContent = `${calendarMonths[currentMonth]} ${currentYear}`;
-const currentDate = new Date(currentYear, currentMonth+1, 0);
-const lastDayOfMonth = currentDate.getDate();
+
+const currentLastDate = new Date(currentYear, currentMonth+1, 0);
+const lastDayOfMonth = currentLastDate.getDate();
+
+const currentFirstDate = new Date(currentYear, currentMonth, 1);
+const firstDayOfMonth = currentFirstDate.getDay();
+
+const firstDayMondayFirst = (firstDayOfMonth + 6) % 7;
+
+for (i = 0; i < firstDayMondayFirst; i++) {
+    const emptyDay = document.createElement('div');
+    emptyDay.classList.add('emptyCalendarDay');
+    calendarGrid.append('emptyDay');
+}
