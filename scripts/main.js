@@ -11,16 +11,16 @@ const chooseMonthButtonRight = document.querySelector('.js-chooseMonthButtonRigh
 const monthYearText = document.querySelector('js-monthYearText');
 const dateResidents = document.querySelector('.js-dateResidents');
 
-// Kalender variabler
+// Kalender
 const today = new Date();
 let currentYear = today.getFullYear();
-let currentMonth = today.getFullMonth();
+let currentMonth = today.getMonth();
 
-// Arrays
 const calendarMonths = [
 'Januar', 'Februar', 'Marts', 'April', 'Maj', 'Juni', 
 'Juli', 'August', 'September', 'Oktober', 'November','December'
 ];
 
-calendarMonths[currentMonth];
 monthYearText.textContent = `${calendarMonths[currentMonth]} ${currentYear}`;
+const currentDate = new Date(currentYear, currentMonth+1, 0);
+const lastDayOfMonth = currentDate.getDate();
