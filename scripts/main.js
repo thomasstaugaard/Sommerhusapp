@@ -23,16 +23,21 @@ const calendarMonths = [
 
 monthYearText.textContent = `${calendarMonths[currentMonth]} ${currentYear}`;
 
-const currentLastDate = new Date(currentYear, currentMonth+1, 0);
-const lastDayOfMonth = currentLastDate.getDate();
-
 const currentFirstDate = new Date(currentYear, currentMonth, 1);
 const firstDayOfMonth = currentFirstDate.getDay();
-
 const firstDayMondayFirst = (firstDayOfMonth + 6) % 7;
-
-for (i = 0; i < firstDayMondayFirst; i++) {
+for (let i = 0; i < firstDayMondayFirst; i++) {
     const emptyDay = document.createElement('div');
-    emptyDay.classList.add('emptyCalendarDay');
-    calendarGrid.append('emptyDay');
-}
+    emptyDay.classList.add('calendarDay');
+    calendarGrid.append(emptyDay);
+};
+
+const currentLastDate = new Date(currentYear, currentMonth+1, 0);
+const lastDayOfMonth = currentLastDate.getDate();
+for (let i = 1; i < lastDayOfMonth + 1; i++) {
+    const lastDay = document.createElement('button');
+    lastDay.classList.add('calendarDay');
+    lastDay.textContent = `${i}`;
+    calendarGrid.append(lastDay);
+};
+
