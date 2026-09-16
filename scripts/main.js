@@ -8,7 +8,7 @@ const editBookingButton = document.querySelector('.js-editBookingButton');
 const deleteBookingButton = document.querySelector('.js-deleteBookingButton');
 const chooseMonthButtonLeft = document.querySelector('.js-chooseMonthButtonLeft');
 const chooseMonthButtonRight = document.querySelector('.js-chooseMonthButtonRight');
-const monthYearText = document.querySelector('js-monthYearText');
+const monthYearText = document.querySelector('.js-monthYearText');
 const dateResidents = document.querySelector('.js-dateResidents');
 
 // Kalender
@@ -16,28 +16,30 @@ const today = new Date();
 let currentYear = today.getFullYear();
 let currentMonth = today.getMonth();
 
-const calendarMonths = [
-'Januar', 'Februar', 'Marts', 'April', 'Maj', 'Juni', 
-'Juli', 'August', 'September', 'Oktober', 'November','December'
+const sumOfMonths = [
+'Januar', 'Februar', 'Marts', 'April', 'Maj', 'Juni', 'Juli', 
+'August', 'September', 'Oktober', 'November', 'December'
 ];
 
-monthYearText.textContent = `${calendarMonths[currentMonth]} ${currentYear}`;
+monthYearText.textContent = `${sumOfMonths[currentMonth]} ${currentYear}`;
 
-const currentFirstDate = new Date(currentYear, currentMonth, 1);
-const firstDayOfMonth = currentFirstDate.getDay();
-const firstDayMondayFirst = (firstDayOfMonth + 6) % 7;
-for (let i = 0; i < firstDayMondayFirst; i++) {
+const emptyDayOfMonth = new Date(currentYear, currentMonth, 1);
+const dayOfWeek = emptyDayOfMonth.getDay();
+const emptyDayOfWeek = (dayOfWeek + 6) % 7;
+for (let i = 0; i < emptyDayOfWeek; i++) {
     const emptyDay = document.createElement('div');
-    emptyDay.classList.add('calendarDay');
+    emptyDay.classList.add('emptyCalendarDay');
     calendarGrid.append(emptyDay);
 };
 
-const currentLastDate = new Date(currentYear, currentMonth+1, 0);
-const lastDayOfMonth = currentLastDate.getDate();
-for (let i = 1; i < lastDayOfMonth + 1; i++) {
-    const lastDay = document.createElement('button');
-    lastDay.classList.add('calendarDay');
-    lastDay.textContent = `${i}`;
-    calendarGrid.append(lastDay);
+const calendarDayOfMonth = new Date(currentYear, currentMonth+1, 0);
+const calendarDay = calendarDayOfMonth.getDate()
+for (let i = 1; i <= calendarDay; i++) {
+    const calendarDay = document.createElement('button');
+    calendarDay.classList.add('calendarDay');
+    calendarDay.textContent = `${i}`;
+    calendarGrid.append(calendarDay);
 };
+
+
 
